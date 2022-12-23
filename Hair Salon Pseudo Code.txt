@@ -1,0 +1,80 @@
+Eau Claire's Salon
+You've been referred by Pierre to his friend Claire who is the owner of a hair salon called Eau Claire's Salon. She has contracted you out to create an MVC web application to help her manage her employees (stylists) and their clients. Claire should be able to add a list of stylists working at the salon, and for each stylist, add clients who see that stylist. The stylists have specific specialties, so each client can only see (belong to) a single stylist.
+
+User Stories
+As the salon owner, I need to be able to see a list of all stylists.
+As the salon owner, I need to be able to select a stylist, see their details, and see a list of all clients that belong to that stylist.
+As the salon owner, I need to add new stylists to our system when they are hired.
+As the salon owner, I need to be able to add new clients to a specific stylist. I should not be able to add a client if no stylists have been added.
+
+
+Eau Claire's Salon:
+manage stylists and their clients
+- splash page to view list of all stylists
+- Stylists page, show all stylists as clickable links, add new stylist /w form: Name, Specialty
+- Stylists/Details page, show Name, Specialty, and all clients, add new client link /w form: Name
+
+// create schema
+> create best_cuisine_restaurants schema
+	create	table cuisines /w CuisineId, Cuisine
+		create table restaurants /w RestaurantId, Name, BestDish, CuisineId
+			update appsettings.json with db name
+
+// in Program.cs, update builder.Services.AddDbContext<T>... where T is BestCuisineRestaurantContext
+
+// database context
+create BestCuisineRestaurantContext.cs /w DbSet<Cuisine> Cuisines, DbSet<Restuarant> Restaurants
+
+// create entities
+create Cuisine.cs entity /w properties CuisineId, Cuisine, List<Restaurant> Restaurants  
+	create Restaurant.cs entity /w properties RestaurantId, Name, BestDish, CuisineId
+	
+			
+// create controller and corresponding views
+> create HomeController and Views
+	HomeController:
+	create Index() action
+	
+	Views:
+	create Index.cshtml /w link to "view all cuisines"
+
+> create Cuisines Controller and Views
+	create Index() action
+		create Index.cshtml /w link "create new Cuisine type"
+
+	create Create() action
+		create Create.cshtml /w form
+
+	create [HttpPost] Create() action
+
+	create Details() action
+		create Details.cshtml /w ?
+
+	create Delete() action
+		create Delete.cshtml
+
+	create Edit() action
+		create Edit.cshtml
+
+	create [HttpPost] Edit() action
+
+
+
+> create Restaurant Controller and Views
+	create Index() action
+	create Index.cshtml /w link "create new Cuisine type"
+
+	create Create() action
+		create Create.cshtml /w form
+
+	create [HttpPost] Create() action
+
+	create Details() action
+		create Details.cshtml /w ?
+
+	create Delete() action
+
+	create Edit() action
+		create Edit.cshtml
+
+	create [HttpPost] Edit() action
