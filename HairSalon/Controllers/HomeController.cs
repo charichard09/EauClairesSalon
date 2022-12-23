@@ -25,10 +25,14 @@ namespace HairSalon.Controllers
     public ActionResult Search(string query)
     {
       // Perform the search and retrieve the results
-      var results = _db.Stylists.Where(s => s.Name.Contains(query)).ToList();
+      List<Stylist> stylistResults = _db.Stylists.Where(s => s.Name.Contains(query)).ToList();
+      List<Client> clientResults = _db.Clients.Where(c => c.Name.Contains(query)).ToList();
+      Dictionary<string, object> results = new Dictionary<string, object>();
+      ViewBag.stylists = stylistResults;
+      ViewBag.clients = clientResults;
 
       // Return the view with the results
-      return View("Index", results);
+      return RedirectToAction("Index");
     }
   }
 }

@@ -16,7 +16,20 @@
   <input type="submit" value="Search">
 }
 
-@foreach (Stylist stylist in Model)
+@if (ViewBag.stylists != null)
 {
-  <p>@stylist.Name</p>
+  <h2>Stylists</h2>
+  @foreach (Stylist stylist in ViewBag.stylists)
+  {
+    <p>@stylist.Name</p>
+  }
+}
+
+@if (ViewBag.clients != null)
+{
+  <h2>Clients</h2>
+  @foreach (Client client in ViewBag.clients)
+  {
+    <p>@client.Name</p>
+  }
 }
