@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
-using System;
 
 namespace HairSalon.Controllers
 {
@@ -23,27 +22,14 @@ namespace HairSalon.Controllers
       return View();
     }
 
-    public ActionResult Search(string query)
-    {
-      // Perform the search and retrieve the results
-      List<Stylist> stylistResults = _db.Stylists.Where(s => s.Name.Contains(query)).ToList();
-      List<Client> clientResults = _db.Clients.Where(c => c.Name.Contains(query)).ToList();
-      Dictionary<string, object[]> results = new Dictionary<string, object[]>();
-      // ViewBag.stylists = stylistResults;
-      // ViewBag.clients = clientResults;
-      foreach (Stylist stylist in stylistResults)
-      {
-        Console.WriteLine(stylist.Name);
-      }
-      foreach (Client client in clientResults)
-      {
-        Console.WriteLine(client.Name);
-      }
-      results.Add("stylists", stylistResults.ToArray());
-      results.Add("clients", clientResults.ToArray());
+    // public ActionResult Search(string query)
+    // {
+    //   // Perform the search and retrieve the results
+    //   List<Stylist> results = _db.Stylists.Where(s => s.Name.Contains(query)).ToList();
 
-      // Return the view with the results
-      return View("Index", results);
-    }
+    //   // Return the view with the results
+      
+    //   return View("Index", results);
+    // }
   }
 }

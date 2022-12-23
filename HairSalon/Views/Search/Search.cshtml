@@ -1,0 +1,10 @@
+@{
+  Layout = "_Layout";
+}
+@model List<HairSalon.Models.Stylist>
+@using HairSalon.Models;
+
+@foreach (Stylist stylist in Model)
+{
+  <p>@stylist.Name</p>
+}
