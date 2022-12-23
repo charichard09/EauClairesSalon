@@ -1,4 +1,4 @@
-# _Project Name_
+# _Eau Claire's Salon_
 
 #### By _**Richard Cha**_
 
