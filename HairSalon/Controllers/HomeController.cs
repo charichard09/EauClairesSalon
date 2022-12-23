@@ -1,5 +1,7 @@
 using HairSalon.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HairSalon.Controllers
 {
