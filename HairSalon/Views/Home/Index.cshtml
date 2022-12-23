@@ -1,8 +1,8 @@
 @{
   Layout = "_Layout";
 }
-@model List<HairSalon.Models.Stylist>
-@using HairSalon.Models
+@* @model List<HairSalon.Models.Stylist> *@
+@using HairSalon.Models;
 
 <h1>Welcome Claire</h1>
 
@@ -16,19 +16,21 @@
   <input type="submit" value="Search">
 }
 
-@if (ViewBag.stylists != null)
+
+
+@if (Model["stylists"].Length != 0)
 {
   <h2>Stylists</h2>
-  @foreach (Stylist stylist in ViewBag.stylists)
+  @foreach (Stylist stylist in Model["stylists"])
   {
     <p>@stylist.Name</p>
   }
 }
 
-@if (ViewBag.clients != null)
+@if (Model["clients"].Length != 0)
 {
   <h2>Clients</h2>
-  @foreach (Client client in ViewBag.clients)
+  @foreach (Client client in Model["clients"])
   {
     <p>@client.Name</p>
   }
