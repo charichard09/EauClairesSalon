@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
+using System;
 
 namespace HairSalon.Controllers
 {
@@ -30,6 +31,14 @@ namespace HairSalon.Controllers
       Dictionary<string, object[]> results = new Dictionary<string, object[]>();
       // ViewBag.stylists = stylistResults;
       // ViewBag.clients = clientResults;
+      foreach (Stylist stylist in stylistResults)
+      {
+        Console.WriteLine(stylist.Name);
+      }
+      foreach (Client client in clientResults)
+      {
+        Console.WriteLine(client.Name);
+      }
       results.Add("stylists", stylistResults.ToArray());
       results.Add("clients", clientResults.ToArray());
 
