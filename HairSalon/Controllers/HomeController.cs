@@ -1,7 +1,9 @@
 using HairSalon.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+
 
 namespace HairSalon.Controllers
 {
@@ -20,22 +22,13 @@ namespace HairSalon.Controllers
       return View();
     }
 
-    public async Task<IActionResult> Index(string searchString)
+    public ActionResult Search(string query)
     {
-      if (_db.Stylists == null)
-      {
-          return Problem("Entity set 'MvcMovieContext.Movie'  is null.");
-      }
+      // Perform the search and retrieve the results
+      var results = _db.Stylists.Where(s => s.Name.Contains(query)).ToList();
 
-      Stylist stylist = from i in _db.Stylists
-                  select i;
-
-      if (!String.IsNullOrEmpty(searchString))
-      {
-          stylist = stylist.Where(s => s.Name!.Contains(searchString));
-      }
-
-      return View(await stylist.ToListAsync());
+      // Return the view with the results
+      return View("Index", results);
     }
   }
 }
