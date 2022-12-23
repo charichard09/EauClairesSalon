@@ -1,7 +1,7 @@
-using ProjectName.Models;
+using HairSalon.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ProjectName.Controllers
+namespace HairSalon.Controllers
 {
   public class HomeController : Controller
   {
