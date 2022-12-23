@@ -1,10 +1,23 @@
 @{
   Layout = "_Layout";
 }
-@model List<HairSalon.Models.Stylist>
+
 @using HairSalon.Models;
 
-@foreach (Stylist stylist in Model)
+@if (Model["stylists"].Count != 0)
 {
-  <p>@stylist.Name</p>
+  <h2>Stylists</h2>
+  @foreach (Stylist stylist in Model["stylists"])
+  {
+    <p>@stylist.Name</p>
+  }
+}
+
+@if (Model["clients"].Count != 0)
+{
+  <h2>Clients</h2>
+  @foreach (Client client in Model["clients"])
+  {
+    <p>@client.Name</p>
+  }
 }
