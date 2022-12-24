@@ -26,9 +26,17 @@ namespace HairSalon.Controllers
     {
       List<Stylist> stylistResults = _db.Stylists.Where(s => s.Name.Contains(query)).ToList();
       List<Client> clientResults = _db.Clients.Where(c => c.Name.Contains(query)).ToList();
-      Dictionary<string, object> results = new Dictionary<string, object>();
+      Dictionary<string, object[]> results = new Dictionary<string, object[]>();
 
-      results.Add("stylists", stylistResults);
+      if (stylistResults == null)
+      {
+        stylistResults = new List<Stylist>() { "No Match Found" };
+      }
+      if (clientResults == null)
+      {
+        clientResults = new List<Client>() { "No Match Found" };
+      }
+      results.Add("stylists",stylistResults);
       results.Add("clients", clientResults);
 
       return View(results);

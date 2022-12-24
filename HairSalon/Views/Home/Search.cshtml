@@ -5,7 +5,7 @@
 @using HairSalon.Models;
 
 <ul>
-@if (Model["stylists"].Count != 0)
+@if (Model["stylists"] != "No Match Found")
   {
     <h2>Stylists</h2>
     @foreach (Stylist stylist in Model["stylists"])
@@ -13,15 +13,24 @@
       <li>@Html.ActionLink($"{stylist.Name}", "Details", "Stylists", new { id = stylist.StylistId})</li>
     }
   }
+  else
+  {
+    <h2>No Stylists Found</h2>
+  }
 </ul>
 
 <ul>
-  @if (Model["clients"].Count != 0)
+  @if (Model["clients"] != "No Match Found")
   {
     <h2>Clients</h2>
     @foreach (Client client in Model["clients"])
     {
-      <li>@client.Name</li>
+      <li>@client.Name | Stylist: @Html.ActionLink($"{client.Stylist.Name}", "Details", "Stylists", new { id = client.Stylist.StylistId})</li>
     }
+  }
+  else
+  {
+    <h2>No Clients Found</h2>
 }
+
 </ul>
