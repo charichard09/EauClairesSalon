@@ -10,13 +10,8 @@
 <p>@Html.ActionLink("Click here to see clients", "Index", "Clients")</p>
 
 <p>Or Search for any </p>
-@using (Html.BeginForm("Search", "Search", FormMethod.Get))
+@using (Html.BeginForm("Search", "Home", FormMethod.Get))
 {
   @Html.TextBox("query", "", new { @class = "form-control" })
   <input type="submit" value="Search">
 }
-
-@* @foreach (Stylist stylist in Model)
-{
-  <p>@stylist.Name</p>
-} *@

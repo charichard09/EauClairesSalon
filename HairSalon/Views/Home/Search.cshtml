@@ -10,7 +10,7 @@
     <h2>Stylists</h2>
     @foreach (Stylist stylist in Model["stylists"])
     {
-      <li>@Html.ActionLink($"{stylist.Name}", "Details", new { id = stylist.StylistId})</li>
+      <li>@Html.ActionLink($"{stylist.Name}", "Details", "Stylists", new { id = stylist.StylistId})</li>
     }
   }
 </ul>
@@ -21,7 +21,7 @@
     <h2>Clients</h2>
     @foreach (Client client in Model["clients"])
     {
-      <li>@Html.ActionLink($"{client.Name}", "Details", new {id = client.ClientId})</li>
+      <li>@client.Name</li>
     }
 }
 </ul>
