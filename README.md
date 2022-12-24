@@ -2,31 +2,48 @@
 
 #### By _**Richard Cha**_
 
-#### _Choose from Pastry or Bread, give amount, and return total cost_
+#### _This web app adds stylists and their clients to a database._
 
 ## Technologies Used
 
 * _C#_
 * _.Net 6_
-* _MSTest_
 * _ASP.NET Core 6 MVC_
+* _Visual Studio Code 2019_
+* _MySql_
+* _MySql Workbench_
+* _Entity Framework Core 6_
+* _Pomelo Entity Framework Core 6 MySql_
 
 ## Description
 
-_This application will prompt the user to enter if they'd like to add Bread or Pastry to Cart then how many to add to Cart. It will then give the prompt an option to add more as a yes or no._
-_If the user is done adding items to the cart, the program will display their cart and a Cart Total._
+_This web application adds hair stylist employees and their specialties to a database through a form. It then allows adding clients through a form to each stylist and saving the information to a database. By clicking on the Stylists or Clients links on the header, a user can view all added Stylists and Clients. A user can also search for a stylist through the search bar on the home page._
 
 ## Setup/Installation Requirements
 
 * _Install .Net 6 SDK:_
 * [OS X and Windows Instructions](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-c-and-net)
+* _Setup MySql Workbench:_
+* [OS X and Windows Instructions](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql)
 * _Clone this repo to a local directory_
-* _Using Terminal on OS X or PowerShell on Windows navigate to the top directory that this repo was cloned to (YourPath/PierresBakery.Solution):_ 
-* _Confirm all business logic tests pass with MSTest by running commands (not including the dollar symbol):_
-* _$ dotnet restore ./PierresBakery.Tests_
-* _$ dotnet test ./PierresBakery.Tests_
+* _After following the MySqlWorkbench installation instructions, open MySql Workbench and select the Local 3306 server. Then select the "Administration" tab and click on "Data Import/Restore"_
+* _In Import Options select "Import from Self-Contained File" and click the "..." button to navigate to the file "richard_cha.sql" in the top level of this repo. Click "Start Import"_
+* _Confirm the import was successful by clicking on the "Schemas" tab and seeing the richard_cha schema listed._ 
+* _Navigate to the local directory (YourPath/HairSalon.Solution) and create a new file "appsettings.json" 
+* _Open this file with Visual Studio Code 2019 and add:
+```
+{
+    "ConnectionStrings": {
+        "DefaultConnection": "Server=localhost;Port=3306;database=[YOUR-DB-NAME];uid=[YOUR-USERNAME-HERE];pwd=[YOUR-PASSWORD-HERE];"
+    }
+} 
+```
+replace [YOUR-USERNAME-HERE] and [YOUR-PASSWORD-HERE] with the your own user and password values._
+
+* _Using Terminal on OS X or PowerShell on Windows navigate to the top directory that this repo was cloned to (YourPath/HairSalon.Solution) and run terminal commands:_ 
+* _$ dotnet restore ./HairSalon.Tests_
 * _Then run the program with command :_
-* _$ dotnet run --project PierresBakery_
+* _$ dotnet run --project HairSalon_
 
 ## Known Bugs
 
@@ -56,4 +73,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) _12-09-22_ _Richard Cha_
+Copyright (c) _12-23-22_ _Richard Cha_
