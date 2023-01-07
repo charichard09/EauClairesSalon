@@ -27,7 +27,8 @@ _This web application adds hair stylist employees and their specialties to a dat
 * [OS X and Windows Instructions](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql)
 * _Clone this repo to a local directory_
 * _After following the MySqlWorkbench installation instructions, open MySql Workbench and select the Local 3306 server. Then select the "Administration" tab and click on "Data Import/Restore"_
-* _In Import Options select "Import from Self-Contained File" and click the "..." button to navigate to the file "richard_cha.sql" in the top level of this repo. Click "Start Import"_
+* _In Import Options select "Import from Self-Contained File" and click the "..." button to navigate to the file "richard_cha.sql" in the top level of this repo._ 
+* _Under the "Default Schema to be Imported to" select "New..." and enter schema name richard_cha. Click "Start Import" in the bottom right_
 * _Confirm the import was successful by clicking on the "Schemas" tab and seeing the richard_cha schema listed._ 
 * _Navigate to the local directory (YourPath/HairSalon.Solution) and create a new file "appsettings.json" 
 * _Open this file with Visual Studio Code 2019 and add:
@@ -39,6 +40,7 @@ _This web application adds hair stylist employees and their specialties to a dat
 } 
 ```
 replace [YOUR-USERNAME-HERE] and [YOUR-PASSWORD-HERE] with the your own user and password values._
+replace [YOUR-DB-NAME] with richard_cha
 
 * _Using Terminal on OS X or PowerShell on Windows navigate to the top directory that this repo was cloned to (YourPath/HairSalon.Solution) and run terminal commands:_ 
 * _$ dotnet restore ./HairSalon.Tests_

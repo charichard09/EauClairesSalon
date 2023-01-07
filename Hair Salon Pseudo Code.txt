@@ -14,15 +14,17 @@ manage stylists and their clients
 - Stylists page, show all stylists as clickable links, add new stylist /w form: Name, Specialty
 - Stylists/Details page, show Name, Specialty, and all clients, add new client link /w form: Name
 
+
+
+
+
 // create schema
 > create richard_cha schema
 	create	table stylists /w StylistId, Name, Specialty
 		create table clients /w ClientId, Name, StylistId
 			update appsettings.json with db name
 
-
 // in Program.cs, update builder.Services.AddDbContext<T>... where T is HairSalonContext
-
 
 // database context
 > create HairSalonContext.cs /w DbSet<Stylist> Stylists, DbSet<Client> Clients
@@ -32,7 +34,6 @@ manage stylists and their clients
 	
 > create Client.cs entity /w properties ClientId, Name, StylistId
 	
-			
 // create controller and corresponding views
 > create HomeController and Views:
 	create Index() action
@@ -41,6 +42,7 @@ manage stylists and their clients
 > create StylistsController and Views:
 	create Index() action
 		create Index.cshtml /w link "Add new stylist"
+
 
 	create Create() action
 		create Create.cshtml /w form
@@ -81,3 +83,72 @@ NON-MVP:
 		create Edit.cshtml
 
 	create [HttpPost] Edit() action
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
